@@ -3,6 +3,7 @@ package "rake" do
   action :install
 end
 
+#TODO needs not_if, only_if for idempotence....
 bash "create FFCRM database" do
   cwd File.join(node[:bundler][:apps_path], node[:bundler][:app])
   code "bundle exec rake db:create RAILS_ENV=production"
